@@ -5,37 +5,32 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons"; // Import the F
 
 const Facebook = () => {
   const navigate = useNavigate();
-  const [showNextButton, setShowNextButton] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   const handleButtonClick = () => {
-    // Store a flag in localStorage to check if the user is returning from Facebook
-    sessionStorage.setItem("redirectedToFacebook", "true");
+    // Mark that the user attempted to follow on Facebook
+    sessionStorage.setItem("attemptedFacebook", "true");
 
-    // Attempt to open the Facebook page in the app
+    // Attempt to open the Facebook app with the user profile
     window.location.href = "fb://page/SCellGecSiwan";
 
-    // Fallback to the Facebook web profile if the app is not installed
+    // Fallback to the web version if the app is not installed
     setTimeout(() => {
       window.location.href = "https://www.facebook.com/SCellGecSiwan?mibextid=ZbWKwL";
+      setShowButton(true); // Show the next button after fallback
     }, 1000); // Wait 1 second before falling back
   };
 
   useEffect(() => {
-    // Check if the user was redirected to Facebook and has returned
-    const redirected = sessionStorage.getItem("redirectedToFacebook");
-    if (redirected) {
-      // Clear the flag from local storage immediately after return
-      sessionStorage.removeItem("redirectedToFacebook");
-      
-      // Set state to show the next button
-      setShowNextButton(true);
+    // Check if the user was redirected from Facebook and has returned
+    const attempted = sessionStorage.getItem("attemptedFacebook");
+    if (attempted) {
+      // Clear the flag from session storage
+      sessionStorage.removeItem("attemptedFacebook");
+      // Show the next button since the user returned from the Facebook attempt
+      setShowButton(true);
     }
-  }, []); // Empty dependency array to run once on component mount
-
-  const handleNextPageClick = () => {
-    // Navigate to the Twitter page
-    navigate("/twitter");
-  };
+  }, [navigate]);
 
   return (
     <div className="container">
@@ -60,12 +55,14 @@ const Facebook = () => {
         <img src="/quiz2.png" alt="Image outside circle" className="circle-image" />
         <p className="circle-text">Follow our Facebook</p>
         <button onClick={handleButtonClick} className="circle-button">
-          <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '8px' }} /> {/* Facebook icon */}
+          <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '15px' }} />
           Follow <span className="symbol">&gt;</span>
         </button>
-        {showNextButton && (
-          <button onClick={handleNextPageClick} className="circle-button">
-            Proceed to Next Page <span className="symbol">&gt;</span>
+
+        {/* Show the "Next" button only if showButton is true */}
+        {showButton && (
+          <button onClick={() => navigate("/twitter")} className="circle-button">
+            Next Page <span className="symbol">&gt;</span>
           </button>
         )}
       </div>
