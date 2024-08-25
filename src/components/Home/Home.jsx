@@ -34,28 +34,6 @@ const Home = () =>{
         <button onClick={handleButtonClick} className="circle-button">Next <span className="symbol">&gt;</span></button>
      </div>
 
-      {/* <div className="footer">
-        <div class="large-circle">
-          <div class="small-circle">
-            <img className="circle-image" src="/quiz2.png" alt="" />
-            <h1 className="circle-text">To start the quiz follow <br /> the following steps</h1>
-            <button className="circle-button">Next</button>
-          </div>
-        </div>
-      </div> */}
-
-        {/* <div className="content">
-          <div className="goal-image">
-            <img className="quiz-img2" src="/quiz2.png" alt="" />
-          </div>
-          <div className="start">
-            <h1 className="quiz-start-text">To start the quiz follow <br /> the following steps</h1>
-          </div>
-          <div className="button">
-            <button className="btn">Next</button>
-          </div>
-        </div> */}
-
     </div>
   );
 };
