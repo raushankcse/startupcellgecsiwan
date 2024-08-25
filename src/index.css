@@ -179,6 +179,36 @@ body{
   .large-circle {
     width: 120vw; /* Larger size for smaller screens */
     height: 120vw;
+    top: 120%;
+  }
+
+  .small-circle {
+    width: 110vw; /* Adjust size for smaller screen */
+    height: 110vw;
+    top: 65%; /* Adjust position for visibility */
+  }
+
+  .circle-image {
+    width: 80vw; /* Smaller size for smaller screens */
+    top: -56vh; /* Adjust position */
+  }
+
+  .circle-text {
+    top: 5%; /* Adjust text position */
+    font-size: 5vw; /* Smaller font size */
+  }
+
+  .circle-button {
+    top: 50%; /* Adjust button position */
+    font-size: 5vw; /* Smaller font size */
+    width: 70%; /* Adjust width */
+  }
+}
+
+@media (max-width: 320px) { /* For even smaller screens */
+  .large-circle {
+    width: 120vw; /* Larger size for smaller screens */
+    height: 120vw;
     top: 150%;
   }
 
@@ -202,34 +232,5 @@ body{
     top: 50%; /* Adjust button position */
     font-size: 5vw; /* Smaller font size */
     width: 70%; /* Adjust width */
-  }
-}
-
-@media (max-width: 320px) { /* For even smaller screens */
-  .large-circle {
-    width: 250vw;
-    height: 250vw;
-  }
-
-  .small-circle {
-    width: 130vw;
-    height: 130vw;
-    top: 60%;
-  }
-
-  .circle-image {
-    width: 70vw;
-    top: -40vh;
-  }
-
-  .circle-text {
-    top: 25%;
-    font-size: 3.5vw;
-  }
-
-  .circle-button {
-    top: 55%;
-    font-size: 4vw;
-    width: 85%;
   }
 }
