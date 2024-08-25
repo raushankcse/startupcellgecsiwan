@@ -30,7 +30,7 @@ const Home = () =>{
         <div class="large-circle"></div>
         <div class="small-circle"></div>
         <img src="/quiz2.png" alt="Image outside circle" class="circle-image"/>
-        <p class="circle-text">To start the quiz follow the following steps</p>
+        <p class="circle-text">To start the quiz follow the <br />following steps</p>
         <button onClick={handleButtonClick} class="circle-button">Next <span className="symbol">&gt;</span></button>
      </div>
 

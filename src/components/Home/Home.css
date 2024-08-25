@@ -1,4 +1,4 @@
-.container{
+/* .container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,74 +65,73 @@
   width: 200px;
 }
 
-/* Container for background circles and content */
 .background-container {
-  position: relative; /* Needed for absolute positioning of the image and text */
-  width: 400px; /* Adjust size as needed */
-  height: 400px; /* Adjust size as needed */
+  position: relative; 
+  width: 400px; 
+  height: 400px; 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Styling for the large circle (background) */
+
 .large-circle {
-  width: 100%; /* Full size of container */
-  height: 100%; /* Full size of container */
+  width: 100%; 
+  height: 100%; 
   background-color: #FFB646;
   border-radius: 50%;
-  position: absolute; /* Positioned behind other content */
+  position: absolute;
   top: -50px;
   left: 0;
-  z-index: 0; /* Ensure it’s behind the small circle */
+  z-index: 0; 
 }
 
-/* Styling for the small circle (background) */
+
 .small-circle {
-  width: 400px; /* Adjust size as needed */
-  height: 400px; /* Adjust size as needed */
+  width: 390px;
+  height: 390px; 
   background-color: #FFFFFF;
   border-radius: 50%;
-  position: absolute; /* Positioned within the large circle */
-  z-index: 1; /* Ensure it’s above the large circle */
+  position: absolute; 
+  z-index: 1; 
 }
 
-/* Position small circle centrally */
+
 .small-circle {
-  top: 40%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center based on its own size */
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
 }
 
-/* Styling for the image outside the small circle */
+
 .circle-image {
-  width: 300px; /* Adjust size as needed */
-  /* height: 300px;  */
-  border-radius: 50%; /* Make image circular */
+  width: 300px;
+  height: 300px; 
+  border-radius: 50%; 
   position: absolute;
-  top: -380px; /* Move image outside the top of the small circle */
-  z-index: 2; /* Ensure it’s above the small circle */
-  left: 50%; /* Center horizontally relative to container */
-  transform: translateX(-50%); /* Adjust for center alignment */
+  top: -380px; 
+  z-index: 2; 
+  left: 50%; 
+  transform: translateX(-50%); 
 }
 
-/* Styling for the text below the small circle */
+
 .circle-text {
   position: absolute;
-  top: 15px; /* Position below the small circle */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Adjust for center alignment */
+  top: 15px; 
+  left: 50%;
+  transform: translateX(-50%); 
   font-size: 18px;
   text-align: center;
-  z-index: 9999; /* Ensure it’s above the small circle */
+  z-index: 9999; 
 }
 
-/* Styling for the button below the text */
+
 .circle-button {
   position: absolute;
-  top: 70px; /* Space between text and button */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Adjust for center alignment */
+  top: 70px;
+  left: 50%; 
+  transform: translateX(-50%); 
   padding: 8px 12px;
   background: #FFB646;
   width: 180px;
@@ -141,7 +140,7 @@
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s;
-  z-index: 9999; /* Ensure it’s above the small circle */
+  z-index: 9999; 
   font-size: 16px;
   font-family: federant;
 }
@@ -150,4 +149,4 @@
   position: absolute;
   right: 15px;
   text-align: right;
-}
+} */

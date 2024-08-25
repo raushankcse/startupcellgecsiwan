@@ -16,3 +16,159 @@ body{
   box-sizing: border-box;
   overflow-y: hidden;
 }
+
+/* General container styles */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevents horizontal and vertical scrolling */
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 2vh; /* Responsive padding */
+
+}
+
+.logoImg {
+  width: 50vw; /* Responsive width */
+  max-width: 100px; /* Max width for large screens */
+  padding-top: 1vh; /* Responsive padding */
+}
+
+.yellow-logo {
+  background: #FFB646;
+  width: 50vw; /* Responsive width */
+  max-width: 154px; /* Max width for large screens */
+  height: 50vh; /* Responsive height */
+  max-height: 120px; /* Max height for large screens */
+  border-radius: 0 0 70px 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -12%;
+}
+
+.startup {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 2vh; /* Responsive margin */
+  max-width: 60vw; /* Responsive width */
+}
+
+.startup-text {
+  font-family: Federant;
+  font-size: 8vw; /* Responsive font size */
+  line-height: 1.3em;
+  text-align: center;
+  color: #fff;
+}
+
+.college-name {
+  color: #FFB646;
+  border-bottom: 2px solid white;
+  font-family: Federant;
+  font-size: 5vw; /* Responsive font size */
+  line-height: 1.3em;
+  text-align: center;
+}
+
+.quiz-img {
+  margin-top: -14vh; /* Responsive margin */
+  width: 60vw; /* Responsive width */
+}
+
+
+/* Container for background circles and content */
+.background-container {
+  position: relative;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling for the large circle (background) */
+.large-circle {
+  width: 150vw; /* Make it larger than the viewport */
+  height: 150vw; /* Keep it a circle shape */
+  background-color: #FFB646;
+  border-radius: 50%;
+  position: absolute;
+  top: 100%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%) translateY(-25%); /* Shift up to make half visible */
+  z-index: 0;
+}
+
+/* Styling for the small circle (background) */
+.small-circle {
+  width: 150vw; /* Make the small circle responsive */
+  height: 150vw; /* Keep it a circle shape */
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  position: absolute;
+  top: 70%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center it in the middle of the large circle */
+  z-index: 1;
+}
+
+/* Styling for the image outside the small circle */
+.circle-image {
+  width: 100vw; /* Make the image responsive */
+  border-radius: 50%; /* Make image circular */
+  position: absolute;
+  top: -57vh; /* Position to make it slightly outside the circle */
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Styling for the text below the small circle */
+.circle-text {
+  position: absolute;
+  width: 100vw;
+  top:15%; /* Position text below the small circle */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5vw; /* Responsive font size */
+  text-align: center;
+  z-index: 9999;
+}
+
+/* Styling for the button below the text */
+.circle-button {
+  position: absolute;
+  top: 40%; /* Space between text and button */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1vh 2vw;
+  background: #FFB646;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 9999;
+  font-size: 6vw;
+  width: 70%;
+  font-family: Federant;
+}
+
+
+.symbol {
+  position: absolute;
+  right: 15px;
+  text-align: right;
+}
