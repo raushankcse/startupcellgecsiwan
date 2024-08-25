@@ -1,45 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Instagram = () => {
   const navigate = useNavigate();
-  const [instagramOpened, setInstagramOpened] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   const handleButtonClick = () => {
-    localStorage.setItem("redirectedToInstagram", "true");
+    // Mark that the user attempted to follow on Instagram
+    sessionStorage.setItem("attemptedInstagram", "true");
 
-    // Attempt to open the Instagram app using a deep link
+    // Attempt to open the Instagram app with the user profile
     window.location.href = "instagram://user?username=scellgecsiwan";
 
-    // Set a timeout to check if the Instagram app didn't open (fallback to web)
+    // Fallback to the web version if the app is not installed
     setTimeout(() => {
-      setInstagramOpened(true); // Now it's okay to show the next button
       window.location.href = "https://www.instagram.com/scellgecsiwan";
-    }, 2000);
+      setShowButton(true); // Show the next button after fallback
+    }, 1000); // Wait 1 second before falling back
   };
 
   useEffect(() => {
-    const redirected = localStorage.getItem("redirectedToInstagram");
-    if (redirected) {
-      // If the user was redirected to Instagram, remove the flag and navigate to the next page
-      localStorage.removeItem("redirectedToInstagram");
+    // Check if the user was redirected from Instagram and has returned
+    const attempted = sessionStorage.getItem("attemptedInstagram");
+    if (attempted) {
+      // Clear the flag from session storage
+      sessionStorage.removeItem("attemptedInstagram");
+      // Navigate to the next page
       navigate("/facebook");
     }
   }, [navigate]);
-
-  const handleNextPageClick = () => {
-    // Navigate to the Facebook page
-    navigate("/facebook");
-  };
 
   return (
     <div className="container">
       <div className="header">
         <div className="logo">
           <div className="yellow-logo">
-            <img className="logoImg" src="/logo.png" alt="" />
+            <img className="logoImg" src="/logo.png" alt="Logo" />
           </div>
         </div>
         <div className="startup">
@@ -47,7 +45,7 @@ const Instagram = () => {
           <h1 className="college-name">Government Engineering College Siwan</h1>
         </div>
         <div className="quiz">
-          <img className="quiz-img" src="/quiz.png" alt="" />
+          <img className="quiz-img" src="/quiz.png" alt="Quiz" />
         </div>
       </div>
 
@@ -57,11 +55,14 @@ const Instagram = () => {
         <img src="/quiz2.png" alt="Image outside circle" className="circle-image" />
         <p className="circle-text">Follow our Instagram</p>
         <button onClick={handleButtonClick} className="circle-button">
-          <FontAwesomeIcon icon={faInstagram} style={{ marginRight: "15px" }} /> Follow <span className="symbol">&gt;</span>
+          <FontAwesomeIcon icon={faInstagram} style={{ marginRight: '15px' }} />
+          Follow <span className="symbol">&gt;</span>
         </button>
-        {instagramOpened && (
-          <button onClick={handleNextPageClick} className="circle-button">
-            Proceed to Next Page
+
+        {/* Show the "Next" button only if showButton is true */}
+        {showButton && (
+          <button onClick={() => navigate("/facebook")} className="circle-button">
+            Next Page <span className="symbol">&gt;</span>
           </button>
         )}
       </div>

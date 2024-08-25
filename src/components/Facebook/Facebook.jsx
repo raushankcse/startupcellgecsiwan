@@ -9,29 +9,28 @@ const Facebook = () => {
 
   const handleButtonClick = () => {
     // Store a flag in localStorage to check if the user is returning from Facebook
-    localStorage.setItem("redirectedToFacebook", "true");
+    sessionStorage.setItem("redirectedToFacebook", "true");
 
     // Attempt to open the Facebook page in the app
     window.location.href = "fb://page/SCellGecSiwan";
 
     // Fallback to the Facebook web profile if the app is not installed
     setTimeout(() => {
-      setShowNextButton(true); // Show the next button after attempting to open Facebook
       window.location.href = "https://www.facebook.com/SCellGecSiwan?mibextid=ZbWKwL";
     }, 1000); // Wait 1 second before falling back
   };
 
   useEffect(() => {
     // Check if the user was redirected to Facebook and has returned
-    const redirected = localStorage.getItem("redirectedToFacebook");
+    const redirected = sessionStorage.getItem("redirectedToFacebook");
     if (redirected) {
-      // Clear the flag from local storage
-      localStorage.removeItem("redirectedToFacebook");
-
-      // Navigate to the Twitter page after returning
-      navigate("/twitter");
+      // Clear the flag from local storage immediately after return
+      sessionStorage.removeItem("redirectedToFacebook");
+      
+      // Set state to show the next button
+      setShowNextButton(true);
     }
-  }, [navigate]);
+  }, []); // Empty dependency array to run once on component mount
 
   const handleNextPageClick = () => {
     // Navigate to the Twitter page
