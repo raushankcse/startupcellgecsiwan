@@ -20,7 +20,7 @@ const Quiz = () => {
     sessionStorage.setItem("attemptedQuiz", "true");
 
     // Open the Google Form link in a new tab
-    window.open("https://forms.gle/zz7ekEd3PbhgskBS6", "_blank");
+    window.open("https://forms.gle/9AUnFHBgc2g5DSNZ7", "_blank");
 
     // Redirect to the quiz page (or another page) after opening the form
     navigate("/quiz");
