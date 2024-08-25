@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"; // Import the Twitter icon
 
 const Twitter = () => {
   const navigate = useNavigate();
+  const [showNextButton, setShowNextButton] = useState(false);
 
   const handleButtonClick = () => {
     // Store a flag in localStorage to check if the user is returning from Twitter
@@ -15,6 +16,7 @@ const Twitter = () => {
 
     // Fallback to the Twitter web profile if the app is not installed
     setTimeout(() => {
+      setShowNextButton(true); // Show the next button after attempting to open Twitter
       window.location.href = "https://x.com/SCellGecSiwan?t=aK5JjMzs9bHeeyiZCnCGsA";
     }, 1000); // Wait 1 second before falling back
   };
@@ -30,6 +32,11 @@ const Twitter = () => {
       navigate("/quiz");
     }
   }, [navigate]);
+
+  const handleNextPageClick = () => {
+    // Navigate to the quiz page
+    navigate("/quiz");
+  };
 
   return (
     <div className="container">
@@ -57,6 +64,11 @@ const Twitter = () => {
           <FontAwesomeIcon icon={faTwitter} style={{ marginRight: '8px' }} /> {/* Twitter icon */}
           Follow <span className="symbol">&gt;</span>
         </button>
+        {showNextButton && (
+          <button onClick={handleNextPageClick} className="circle-button">
+            Proceed to Next Page <span className="symbol">&gt;</span>
+          </button>
+        )}
       </div>
     </div>
   );

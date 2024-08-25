@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons"; // Import the Facebook icon
 
 const Facebook = () => {
   const navigate = useNavigate();
+  const [showNextButton, setShowNextButton] = useState(false);
 
   const handleButtonClick = () => {
     // Store a flag in localStorage to check if the user is returning from Facebook
@@ -15,6 +16,7 @@ const Facebook = () => {
 
     // Fallback to the Facebook web profile if the app is not installed
     setTimeout(() => {
+      setShowNextButton(true); // Show the next button after attempting to open Facebook
       window.location.href = "https://www.facebook.com/SCellGecSiwan?mibextid=ZbWKwL";
     }, 1000); // Wait 1 second before falling back
   };
@@ -30,6 +32,11 @@ const Facebook = () => {
       navigate("/twitter");
     }
   }, [navigate]);
+
+  const handleNextPageClick = () => {
+    // Navigate to the Twitter page
+    navigate("/twitter");
+  };
 
   return (
     <div className="container">
@@ -57,6 +64,11 @@ const Facebook = () => {
           <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '8px' }} /> {/* Facebook icon */}
           Follow <span className="symbol">&gt;</span>
         </button>
+        {showNextButton && (
+          <button onClick={handleNextPageClick} className="circle-button">
+            Proceed to Next Page <span className="symbol">&gt;</span>
+          </button>
+        )}
       </div>
     </div>
   );

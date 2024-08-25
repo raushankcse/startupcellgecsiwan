@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Quiz = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Check if the user was redirected from the form
+    const attempted = sessionStorage.getItem("attemptedQuiz");
+    if (attempted) {
+      // Clear the flag from sessionStorage
+      sessionStorage.removeItem("attemptedQuiz");
+      // Redirect to the final page or just stay on the quiz page
+      navigate("/quiz"); // Redirect to the same quiz page or any other page
+    }
+  }, [navigate]);
+
   const handleButtonClick = () => {
-    // Open the Google Form link
-    window.location.href = "https://forms.gle/zz7ekEd3PbhgskBS6";
+    // Mark that the quiz has been attempted
+    sessionStorage.setItem("attemptedQuiz", "true");
+
+    // Open the Google Form link in a new tab
+    window.open("https://forms.gle/zz7ekEd3PbhgskBS6", "_blank");
+
+    // Redirect to the quiz page (or another page) after opening the form
+    navigate("/quiz");
   };
 
   return (
