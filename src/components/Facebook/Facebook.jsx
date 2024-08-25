@@ -59,7 +59,7 @@ const Facebook = () => {
         <div className="large-circle"></div>
         <div className="small-circle"></div>
         <img src="/quiz2.png" alt="Image outside circle" className="circle-image" />
-        <p className="circle-text">To start the quiz follow the <br /> following steps</p>
+        <p className="circle-text">Follow our Facebook</p>
         <button onClick={handleButtonClick} className="circle-button">
           <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '8px' }} /> {/* Facebook icon */}
           Follow <span className="symbol">&gt;</span>

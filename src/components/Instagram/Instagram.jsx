@@ -55,7 +55,7 @@ const Instagram = () => {
         <div className="large-circle"></div>
         <div className="small-circle"></div>
         <img src="/quiz2.png" alt="Image outside circle" className="circle-image" />
-        <p className="circle-text">To start the quiz follow the <br />following steps</p>
+        <p className="circle-text">Follow our Instagram</p>
         <button onClick={handleButtonClick} className="circle-button">
           <FontAwesomeIcon icon={faInstagram} style={{ marginRight: "15px" }} /> Follow <span className="symbol">&gt;</span>
         </button>

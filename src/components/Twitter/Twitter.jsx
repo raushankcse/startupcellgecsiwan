@@ -59,7 +59,7 @@ const Twitter = () => {
         <div className="large-circle"></div>
         <div className="small-circle"></div>
         <img src="/quiz2.png" alt="Image outside circle" className="circle-image" />
-        <p className="circle-text">To start the quiz follow the <br /> following steps</p>
+        <p className="circle-text">Follow our X handle</p>
         <button onClick={handleButtonClick} className="circle-button">
           <FontAwesomeIcon icon={faTwitter} style={{ marginRight: '8px' }} /> {/* Twitter icon */}
           Follow <span className="symbol">&gt;</span>

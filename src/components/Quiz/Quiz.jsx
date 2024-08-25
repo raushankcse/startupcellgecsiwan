@@ -47,7 +47,7 @@ const Quiz = () => {
         <div className="large-circle"></div>
         <div className="small-circle"></div>
         <img src="/quiz2.png" alt="Image outside circle" className="circle-image" />
-        <p className="circle-text">To start the quiz follow the <br /> following steps</p>
+        <p className="circle-text">Let's start your quiz</p>
         <button onClick={handleButtonClick} className="circle-button">
           Attempt <span className="symbol">&gt;</span>
         </button>
