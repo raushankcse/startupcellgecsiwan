@@ -2,11 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const Twitter  = () =>{
+const Quiz  = () =>{
   const navigate = useNavigate();
   const handleButtonClick = ()=> {
-    navigate('/quiz');
+    navigate('/form');
   };
+  
   return (
     <div className="container">
 
@@ -60,4 +61,4 @@ const Twitter  = () =>{
   );
 }
 
-export default Twitter;
+export default Quiz;
